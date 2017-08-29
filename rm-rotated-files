@@ -4,6 +4,21 @@ set -euf
 ##
 # This script deletes log files that are created by various kinds of log file rotations.
 #
+# Syntax:
+# 
+#     rm-rotaed-files [dir]
+# 
+# Example to process the current directory and all subdirectories:
+# 
+#     rm-rotaed-files 
+#
+# Example to process a specific directory:
+# 
+#     rm-rotaed-files /var/log
+#
+#
+# ## Which files?
+#
 # Compressed files: 
 # 
 #   * Files with extensions that are known to be compressed or archived.
@@ -21,18 +36,6 @@ set -euf
 #   * Files with names that end in a separator then ISO date.
 #
 #   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
-#
-# Syntax:
-# 
-#     rm-rotated-log-files [dir]
-# 
-# Example to process the current directory and all subdirectories:
-# 
-#     rm-rotated-log-files 
-#
-# Example to process a specific directory:
-# 
-#     rm-rotated-log-files /var/log
 #
 # 
 # ## Compatibility notes

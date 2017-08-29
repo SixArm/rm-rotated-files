@@ -2,6 +2,17 @@
 
 This script deletes log files that are created by various kinds of log file rotations.
 
+Syntax:
+
+    rm-rotated-files <dir>
+
+Example:
+
+    rm-rotated-files /var/log
+
+
+## Which files?
+
 Compressed files: 
 
   * Files with extensions that are known to be compressed or archived.
@@ -19,14 +30,6 @@ Datestamped files:
   * Files with names that end in a separator then ISO date.
 
   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
-
-Syntax:
-
-    rm-rotated-files <dir>
-
-Example:
-
-    rm-rotated-files /var/log
 
 
 ## Compatibility notes
@@ -49,7 +52,7 @@ We prefer to be more compatible rather than system-specific.
 ## Tracking
 
   * Command: rm-rotated-files
-  * Version: 3.1.0
+  * Version: 3.1  .0
   * Created: 2013-12-09
   * Updated: 2017-08-29
   * License: GPL
