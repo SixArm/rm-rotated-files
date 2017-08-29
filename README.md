@@ -14,13 +14,19 @@ Numbered files:
 
   * Examples: foo.1, foo-2, foo_3, etc.
 
+Datestamped files:
+
+  * Files with names that end in a separator then ISO date.
+
+  * Examples: foo-2017-12-31, foo_2017_12_31, etc.
+
 Syntax:
 
-    rm-rotated-log-files <dir>
+    rm-rotated-files <dir>
 
 Example:
 
-    rm-rotated-log-files /var/log
+    rm-rotated-files /var/log
 
 
 ## Compatibility notes
@@ -42,8 +48,8 @@ We prefer to be more compatible rather than system-specific.
 
 ## Tracking
 
-  * Command: rm-rotated-log-files
-  * Version: 3.0.0
+  * Command: rm-rotated-files
+  * Version: 3.1.0
   * Created: 2013-12-09
   * Updated: 2017-08-29
   * License: GPL

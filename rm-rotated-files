@@ -16,6 +16,12 @@ set -euf
 # 
 #   * Examples: foo.1, foo-2, foo_3, etc.
 # 
+# Datestamped files:
+#
+#   * Files with names that end in a separator then ISO date.
+#
+#   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
+#
 # Syntax:
 # 
 #     rm-rotated-log-files [dir]
@@ -51,12 +57,12 @@ set -euf
 #
 # ## Tracking
 # 
-#   * Command: rm-rotated-log-files
-#   * Version: 3.0.0
+#   * Command: rm-rotated-files
+#   * Version: 3.1.0
 #   * Created: 2013-12-09
 #   * Updated: 2017-08-29
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
 
-find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" \) -type f -exec rm {} \;
+find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" -o -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) -type f -exec rm {} \;
