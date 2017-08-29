@@ -1,0 +1,62 @@
+#!/bin/sh
+set -euf
+
+##
+# This script deletes log files that are created by various kinds of log file rotations.
+#
+# Compressed files: 
+# 
+#   * Files with extensions that are known to be compressed or archived.
+# 
+#   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
+# 
+# Numbered files:
+# 
+#   * Files with names that end in a separator then number:
+# 
+#   * Examples: foo.1, foo-2, foo_3, etc.
+# 
+# Syntax:
+# 
+#     rm-rotated-log-files [dir]
+# 
+# Example to process the current directory and all subdirectories:
+# 
+#     rm-rotated-log-files 
+#
+# Example to process a specific directory:
+# 
+#     rm-rotated-log-files /var/log
+#
+# 
+# ## Compatibility notes
+#
+# We prefer to be more compatible rather than system-specific.
+#
+#   * To delete files, we prefer `-exec rm` vs. `-delete`.
+#     The former is more compatible, the latter is faster.
+#
+#   * To name match, we prefer using `-name` vs. `-iname`.
+#     This means we need to match on upper case and lower case.
+#
+#   * To regex match, we prefer patterns to be basic vs. extended.
+#     The former is more compatible, the latter is more modern.
+#
+#   * We prefer POSIX code vs. shell-specific code.
+#
+#   * We prefer the code to be more DAMP than DRY.
+#     For example, the code has separate name matching 
+#     for `.bz` and `.bz2`, even though we could combine these.
+#
+#
+# ## Tracking
+# 
+#   * Command: rm-rotated-log-files
+#   * Version: 3.0.0
+#   * Created: 2013-12-09
+#   * Updated: 2017-08-29
+#   * License: GPL
+#   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+##
+
+find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" \) -type f -exec rm {} \;
