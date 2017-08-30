@@ -1,4 +1,4 @@
-# Remove rotated log files
+# Remove rotated files
 
 This script deletes log files that are created by various kinds of log file rotations.
 
@@ -30,6 +30,16 @@ Datestamped files:
   * Files with names that end in a separator then ISO date.
 
   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
+
+
+## Related
+
+These scripts are for related purposes:
+
+  * [rm-compressed-files](https://github.com/SixArm/rm-compressed-files)
+  * [rm-datestamped-files](https://github.com/SixArm/rm-datestamped-files)
+  * [rm-numbered-files](https://github.com/SixArm/rm-numbered-files)
+  * [rm-rotated-files](https://github.com/SixArm/rm-rotated-files)
 
 
 ## Compatibility notes
