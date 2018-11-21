@@ -25,6 +25,12 @@ set -euf
 # 
 #   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
 # 
+# Old files:
+#
+#  * Files with extensions that are typically for old files.
+#
+#  * Examples: .old, .bak, .tmp
+#
 # Numbered files:
 # 
 #   * Files with names that end in a separator then number:
@@ -37,7 +43,7 @@ set -euf
 #
 #   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
 #
-# 
+#
 # ## Compatibility notes
 #
 # We prefer to be more compatible rather than system-specific.
@@ -68,4 +74,4 @@ set -euf
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
 
-find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" -o -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) -type f -exec rm {} \;
+find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -name "*.[Oo][Ll][Dd]" -o -name "*.[Bb][Aa][Kk]" -o -name "*.[Tt][Mm][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" -o -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) -type f -exec rm {} \;

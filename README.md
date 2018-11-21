@@ -19,6 +19,12 @@ Compressed files:
 
   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
 
+Old files:
+
+  * Files with extensions that are typically for old files.
+
+  * Examples: .old, .bak, .tmp
+
 Numbered files:
 
   * Files with names that end in a separator then number:
