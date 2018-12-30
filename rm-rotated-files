@@ -6,15 +6,15 @@ set -euf
 #
 # Syntax:
 # 
-#     rm-rotaed-files [dir]
+#     $ rm-rotaed-files [dir]
 # 
 # Example to process the current directory and all subdirectories:
 # 
-#     rm-rotaed-files 
+#     $ rm-rotaed-files 
 #
 # Example to process a specific directory:
 # 
-#     rm-rotaed-files /var/log
+#     $ rm-rotaed-files /var/log
 #
 #
 # ## Which files?
