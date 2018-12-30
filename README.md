@@ -4,11 +4,11 @@ This script deletes log files that are created by various kinds of log file rota
 
 Syntax:
 
-    rm-rotated-files <dir>
+    $ rm-rotated-files <dir>
 
 Example:
 
-    rm-rotated-files /var/log
+    $ rm-rotated-files /var/log
 
 
 ## Which files?
@@ -43,8 +43,11 @@ Datestamped files:
 These scripts are for related purposes:
 
   * [rm-compressed-files](https://github.com/SixArm/rm-compressed-files)
-  * [rm-datestamped-files](https://github.com/SixArm/rm-datestamped-files)
+
+  * [rm-dated-files](https://github.com/SixArm/rm-dated-files)
+
   * [rm-numbered-files](https://github.com/SixArm/rm-numbered-files)
+
   * [rm-rotated-files](https://github.com/SixArm/rm-rotated-files)
 
 
@@ -68,8 +71,11 @@ We prefer to be more compatible rather than system-specific.
 ## Tracking
 
   * Command: rm-rotated-files
-  * Version: 3.1  .0
+  * Website: http://sixarm.com/rm-rotated-files
+  * Cloning: https://github.com/sixarm/rm-rotated-files
+  * Version: 4.0.0
   * Created: 2013-12-09
-  * Updated: 2017-08-29
+  * Updated: 2019-01-21
   * License: GPL
   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+  * Tracker: 0f5f883770a0a2e85c7ec9a0c8296402

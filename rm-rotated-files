@@ -67,11 +67,14 @@ set -euf
 # ## Tracking
 # 
 #   * Command: rm-rotated-files
-#   * Version: 3.1.0
+#   * Website: http://sixarm.com/rm-rotated-files
+#   * Cloning: https://github.com/sixarm/rm-rotated-files
+#   * Version: 4.0.0
 #   * Created: 2013-12-09
-#   * Updated: 2017-08-29
+#   * Updated: 2019-01-01
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+#   * Tracker: 0f5f883770a0a2e85c7ec9a0c8296402
 ##
 
 find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -name "*.[Oo][Ll][Dd]" -o -name "*.[Bb][Aa][Kk]" -o -name "*.[Tt][Mm][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" -o -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) -type f -exec rm {} \;
