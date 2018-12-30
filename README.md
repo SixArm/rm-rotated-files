@@ -2,6 +2,17 @@
 
 This script deletes log files that are created by various kinds of log file rotations.
 
+Contents:
+
+* [Introduction](#introduction)
+* [Which files?](#which-files)
+* [Related](#related)
+* [Compatibility notes](#compatibility-notes)
+* [Tracking](#tracking)
+
+
+## Introduction
+
 Syntax:
 
     $ rm-rotated-files <dir>
