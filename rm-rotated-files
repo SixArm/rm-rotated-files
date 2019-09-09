@@ -41,7 +41,7 @@ set -euf
 #
 #   * Files with names that end in a separator then number:
 #
-#   * Examples: foo.1, foo-2, foo_3, etc.
+#   * Examples: foo.1, foo-1, foo_1, foo=1, foo~1,  etc.
 #
 #  * See `rm-numbered-files` for complete info.
 #
@@ -52,7 +52,7 @@ set -euf
 #
 #   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
 #
-#  * See `rm-datestamped-files` for complete info.
+#   * See `rm-datestamped-files` for complete info.
 #
 #
 # ## Compatibility notes
@@ -107,6 +107,6 @@ find "${1:-.}" \
      -name "*.[Tt][Mm][Pp]" -o \
      -name "*.[Tt][Em][Mm][Pp]" -o \
      -name "*.[Tt][Em][Mm][Pp][Oo][Rr][Aa][Rr][Yy]" -o \
-     -regex ".*[-\.][0123456789][0123456789]*" -o \
+     -regex ".*[-\_\=\.\~][0123456789][0123456789]*" -o \
      -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) \
      -exec rm {} \;
