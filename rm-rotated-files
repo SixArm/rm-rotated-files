@@ -5,26 +5,26 @@ set -euf
 # This script deletes log files that are created by various kinds of log file rotations.
 #
 # Syntax:
-# 
-#     $ rm-rotaed-files [dir]
-# 
+#
+#     $ rm-rotated-files [dir]
+#
 # Example to process the current directory and all subdirectories:
-# 
-#     $ rm-rotaed-files 
+#
+#     $ rm-rotated-files
 #
 # Example to process a specific directory:
-# 
-#     $ rm-rotaed-files /var/log
+#
+#     $ rm-rotated-files /var/log
 #
 #
 # ## Which files?
 #
-# Compressed files: 
-# 
+# Compressed files:
+#
 #   * Files with extensions that are known to be compressed or archived.
-# 
+#
 #   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
-# 
+#
 # Old files:
 #
 #  * Files with extensions that are typically for old files.
@@ -32,11 +32,11 @@ set -euf
 #  * Examples: .old, .bak, .tmp
 #
 # Numbered files:
-# 
+#
 #   * Files with names that end in a separator then number:
-# 
+#
 #   * Examples: foo.1, foo-2, foo_3, etc.
-# 
+#
 # Datestamped files:
 #
 #   * Files with names that end in a separator then ISO date.
@@ -60,12 +60,12 @@ set -euf
 #   * We prefer POSIX code vs. shell-specific code.
 #
 #   * We prefer the code to be more DAMP than DRY.
-#     For example, the code has separate name matching 
+#     For example, the code has separate name matching
 #     for `.bz` and `.bz2`, even though we could combine these.
 #
 #
 # ## Tracking
-# 
+#
 #   * Command: rm-rotated-files
 #   * Website: http://sixarm.com/rm-rotated-files
 #   * Cloning: https://github.com/sixarm/rm-rotated-files
@@ -77,4 +77,20 @@ set -euf
 #   * Tracker: 0f5f883770a0a2e85c7ec9a0c8296402
 ##
 
-find "${1:-.}" \( -name "*.[Bb][Zz]" -o -name "*.[Bb][Zz]2" -o -name "*.[Bb][Zz][Ii][Pp]" -o -name "*.[Gg][Zz]" -o -name "*.[Tt][Aa][Rr]" -o -name "*.[Tt][Gg][Zz]" -o -name "*.[Zz][Ii][Pp]" -o -name "*.7[Zz][Ii][Pp]" -o -name "*.[Oo][Ll][Dd]" -o -name "*.[Bb][Aa][Kk]" -o -name "*.[Tt][Mm][Pp]" -o -regex ".*[-\.][0123456789][0123456789]*" -o -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) -type f -exec rm {} \;
+find "${1:-.}" \
+     -type f \
+     \( \
+     -name "*.[Bb][Zz]" -o \
+     -name "*.[Bb][Zz]2" -o \
+     -name "*.[Bb][Zz][Ii][Pp]" -o \
+     -name "*.[Gg][Zz]" -o \
+     -name "*.[Tt][Aa][Rr]" -o \
+     -name "*.[Tt][Gg][Zz]" -o \
+     -name "*.[Zz][Ii][Pp]" -o \
+     -name "*.7[Zz][Ii][Pp]" -o \
+     -name "*.[Oo][Ll][Dd]" -o \
+     -name "*.[Bb][Aa][Kk]" -o \
+     -name "*.[Tt][Mm][Pp]" -o \
+     -regex ".*[-\.][0123456789][0123456789]*" -o \
+     -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) \
+     -exec rm {} \;
