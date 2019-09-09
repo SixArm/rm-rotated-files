@@ -25,16 +25,16 @@ set -euf
 #
 #   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
 #
-#  * See `rm-compressed-files` for complete info.
+#   * See `rm-compressed-files` for complete info.
 #
 #
 # Sidelined files:
 #
-#  * Files with extensions that are typically for old files.
+#   * Files with extensions that are typically for old files.
 #
-#  * Examples: .bak, .old, .tmp
+#   * Examples: .bak, .old, .tmp
 #
-#  * See `rm-sidelined-files` for complete info.
+#   * See `rm-sidelined-files` for complete info.
 #
 #
 # Numbered files:
