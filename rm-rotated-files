@@ -25,11 +25,17 @@ set -euf
 #
 #   * Examples: .bz2, .bzip, .gz, .tar, .tgz, .zip, .7zip
 #
-# Old files:
+#  * See `rm-compressed-files` for complete info.
+#
+#
+# Sidelined files:
 #
 #  * Files with extensions that are typically for old files.
 #
-#  * Examples: .old, .bak, .tmp
+#  * Examples: .bak, .old, .tmp
+#
+#  * See `rm-sidelined-files` for complete info.
+#
 #
 # Numbered files:
 #
@@ -37,11 +43,16 @@ set -euf
 #
 #   * Examples: foo.1, foo-2, foo_3, etc.
 #
+#  * See `rm-numbered-files` for complete info.
+#
+#
 # Datestamped files:
 #
 #   * Files with names that end in a separator then ISO date.
 #
 #   * Examples: foo-2017-12-31, foo_2017_12_31, etc.
+#
+#  * See `rm-datestamped-files` for complete info.
 #
 #
 # ## Compatibility notes
@@ -69,9 +80,9 @@ set -euf
 #   * Command: rm-rotated-files
 #   * Website: http://sixarm.com/rm-rotated-files
 #   * Cloning: https://github.com/sixarm/rm-rotated-files
-#   * Version: 4.0.0
+#   * Version: 4.1.1
 #   * Created: 2013-12-09
-#   * Updated: 2019-01-01
+#   * Updated: 2019-09-08
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 #   * Tracker: 0f5f883770a0a2e85c7ec9a0c8296402
@@ -85,12 +96,17 @@ find "${1:-.}" \
      -name "*.[Bb][Zz][Ii][Pp]" -o \
      -name "*.[Gg][Zz]" -o \
      -name "*.[Tt][Aa][Rr]" -o \
+     -name "*.[Tt][Aa][Rr].[LlXx][Zz]" -o \
      -name "*.[Tt][Gg][Zz]" -o \
      -name "*.[Zz][Ii][Pp]" -o \
      -name "*.7[Zz][Ii][Pp]" -o \
-     -name "*.[Oo][Ll][Dd]" -o \
      -name "*.[Bb][Aa][Kk]" -o \
+     -name "*.[Bb][Aa][Ck][Kk]" -o \
+     -name "*.[Bb][Aa][Ck][Kk][Uu][Pp]" -o \
+     -name "*.[Oo][Ll][Dd]" -o \
      -name "*.[Tt][Mm][Pp]" -o \
+     -name "*.[Tt][Em][Mm][Pp]" -o \
+     -name "*.[Tt][Em][Mm][Pp][Oo][Rr][Aa][Rr][Yy]" -o \
      -regex ".*[-\.][0123456789][0123456789]*" -o \
      -regex ".*[-_\.][0123456789][0123456789][0123456789][0123456789][-_\.][0123456789][0123456789][-_\.][0123456789][0123456789]" \) \
      -exec rm {} \;
